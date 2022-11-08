@@ -4,20 +4,14 @@ from typing import List, Optional
 from pydantic import BaseModel
 
 
-
-
 class GeneBase(BaseModel):
 
     name: str
 
 
-
-
-
 class GeneCreate(GeneBase):
 
     pass
-
 
 
 class Gene(GeneBase):
@@ -28,19 +22,15 @@ class Gene(GeneBase):
         orm_mode = True
 
 
-
 class GenesetBase(BaseModel):
 
     title: str
-
-
 
 
 class GenesetCreate(GenesetBase):
 
     title: str
     genes: List[GeneBase] = []
-
 
 
 class Geneset(GenesetBase):
