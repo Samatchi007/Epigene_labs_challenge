@@ -67,3 +67,11 @@ def create_geneset_item(db: Session, item: GeneCreate, geneset_id: int):
     db.commit()
     db.refresh(db_gene)
     return db_gene
+
+
+def get_gene_by_name(db: Session, gene_name: str):
+    return db.query(Gene).filter(Gene.name == gene_name).first()
+
+
+def get_gene_by_regex(db: Session, regex: str):
+    return db.query(Gene).filter(Gene.name.regexp_match(regex)).all()
